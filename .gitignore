@@ -3,6 +3,7 @@
 /classes
 /checkouts
 pom.xml
+Gemfile.lock
 *.jar
 *.class
 *.iml
