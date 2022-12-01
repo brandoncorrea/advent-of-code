@@ -1,5 +1,5 @@
-# aoc
-Advent of Code Clojure Solutions
+# Advent of Code – Ruby
+Advent of Code Ruby Solutions
 
 ### Getting Started
 
