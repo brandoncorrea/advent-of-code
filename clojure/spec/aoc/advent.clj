@@ -1,4 +1,4 @@
-(ns aoc.generator
+(ns aoc.advent
   (:import (java.io File FileOutputStream)
            (java.text DecimalFormat))
   (:require [clojure.string :as str]))

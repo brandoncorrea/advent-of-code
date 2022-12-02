@@ -4,4 +4,4 @@
   :profiles {:dev {:dependencies [[speclj "3.4.1"]]}}
   :plugins [[speclj "3.4.1"]]
   :test-paths ["spec/"]
-  :aliases {"advent" ["run" "-m" "aoc.generator"]})
+  :aliases {"advent" ["run" "-m" "aoc.advent"]})
