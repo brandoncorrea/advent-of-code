@@ -7,7 +7,14 @@ def create_lib_file(year, day)
   FileUtils.mkdir_p(File.dirname(lib_file))
   unless File.exist?(lib_file)
     File.open(lib_file, 'w') do |file|
-      file.write("def day_#{day}(n)\n  \nend\n")
+      file.write("class Year_#{year}_Day_#{day}
+  class << self
+    def part_1(n) end
+
+    # def part_2(n) end
+  end
+end
+")
     end
   end
 end
@@ -24,9 +31,19 @@ def create_spec_file(year, day)
 # https://adventofcode.com/#{year}/day/#{day}
 
 describe \"Advent #{year} Day #{day}\" do
-  it \"Solves Day #{day}\" do
-    expect(day_#{day}(1)).to eq 1
+  let(:advent) { Year_#{year}_Day_#{day} }
+
+  context \"Part 1\" do
+    it \"Solves Part 1\" do
+      expect(advent.part_1(1)).to eq -1
+    end
   end
+
+  # context \"Part 2\" do
+  #   it \"Solves Part 2\" do
+  #     expect(advent.part_2(1)).to eq -1
+  #   end
+  # end
 end
 ")
     end
