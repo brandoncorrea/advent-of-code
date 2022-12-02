@@ -70,6 +70,10 @@ describe "Advent 2022 Day 1" do
       expect(part_2("1\n\n2\n\n3\n\n4")).to eq 9
     end
 
+    it "base case" do
+      expect(part_2("1000\n2000\n3000\n\n4000\n\n5000\n6000\n\n7000\n8000\n9000\n\n10000")).to eq 45000
+    end
+
     it "my test data" do
       expect(part_2(test_data)).to eq 212117
     end
