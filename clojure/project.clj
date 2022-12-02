@@ -3,5 +3,5 @@
   :dependencies [[org.clojure/clojure "1.11.1"]]
   :profiles {:dev {:dependencies [[speclj "3.4.1"]]}}
   :plugins [[speclj "3.4.1"]]
-  :test-paths ["spec/"]
+  :test-paths ["spec/" "dev/"]
   :aliases {"advent" ["run" "-m" "aoc.advent"]})
