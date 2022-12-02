@@ -1022,7 +1022,7 @@
 
 (describe "AoC Day 3"
 
-  (describe "most-common"
+  (context "most-common"
     (it "Results in most common value for single-item collection"
       (should= 0 (most-common ["00100"] 0)))
     (it "Results in most common value for two item collection"
@@ -1034,7 +1034,7 @@
     (it "Results in 1 if 1 and 0 are equally common"
       (should= 1 (most-common ["10110" "01111"] 0))))
 
-  (describe "least-common"
+  (context "least-common"
     (it "Results in least common value for single-item collection"
       (should= 1 (least-common ["00100"] 0)))
     (it "Results in least common value for two item collection"
@@ -1044,7 +1044,7 @@
     (it "Results in 0 if 1 and 0 are equally common"
       (should= 0 (least-common ["10110" "01111"] 0))))
 
-  (describe "gamma-rate"
+  (context "gamma-rate"
     (it "Results in first number for single-item collection"
       (should= 109 (gamma-rate ["1101101"])))
     (it "Results in the result of sequence of most common values in collections"
@@ -1052,7 +1052,7 @@
     (it "Results in gamma rate of example data"
       (should= 22 (gamma-rate example))))
 
-  (describe "epsilon-rate"
+  (context "epsilon-rate"
     (it "Results in first number for single-item collection"
       (should= 18 (epsilon-rate ["1101101"])))
     (it "Results in results of sequence of least common values in collection"
@@ -1060,16 +1060,25 @@
     (it "Results in epsilon rate of example data"
       (should= 9 (epsilon-rate example))))
 
-  (describe "power-consumption"
+  (context "power-consumption"
     (it "Multiplies gamma rate by epsilon rate"
       (should= 198 (power-consumption example))
       (should= 4006064 (power-consumption diagnostic))))
 
-  (describe "remove-uncommon-n"
+  #_(context "remove-uncommon-n"
     (it "Results in the collection of items containing the most common n"
       (should= [] (remove-uncommon-n [] 0))
-      (should= ["01001" "01101"] (remove-uncommon-n ["01001" "01101" "10111"] 0))
-      ))
+      (should= ["01001" "01101"] (remove-uncommon-n ["01001" "01101" "10111"] 0))))
+
+  (context "binary->int"
+    (it "Converts 0 to integer"
+      (should= 0 (binary->int "0")))
+    (it "Converts 1 to integer"
+      (should= 1 (binary->int "1")))
+    (it "Converts 10 to 2"
+      (should= 2 (binary->int"10")))
+    (it "Converts 1101101 to 109"
+      (should= 109 (binary->int "1101101"))))
 
   ;(describe "oxygen-rating"
   ;  (it "as"

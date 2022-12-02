@@ -1,5 +1,5 @@
 (ns aoc.2021.day02
-  (:require [aoc.util.math :refer [product]]))
+  (:require [aoc.util :as util]))
 
 (defn- navigate-move [[d h a] [type v]]
   (cond (= :down type) [d h (+ a v)]
@@ -10,6 +10,6 @@
   (reduce navigate-move [0 0 0] (partition 2 moves)))
 
 (defn course-product [section moves]
-  (-> moves navigate section product))
+  (-> moves navigate section util/product))
 (def day-2-p1 (partial course-product rest))
 (def day-2-p2 (partial course-product drop-last))
