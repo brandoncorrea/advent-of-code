@@ -1,11 +1,12 @@
 (ns aoc.2021.day01-spec
-  (:require [aoc.util :as util]
-            [speclj.core :refer :all]
-            [aoc.2021.day01 :refer :all]))
+  (:require [aoc.2021.day01 :refer :all]
+            [aoc.util :as util]
+            [clojure.string :as string]
+            [speclj.core :refer :all]))
 
 ; https://adventofcode.com/2021/day/2
 
-(def input-data (-> "../input/2021/day_01.txt" util/slurp-lines util/->ints))
+(def input-data (-> (util/input-data 2021 1) string/split-lines util/->ints))
 
 (describe "increases"
   (for [[coll expected] [[[] 0]

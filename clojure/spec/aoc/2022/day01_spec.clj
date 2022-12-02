@@ -1,11 +1,12 @@
 (ns aoc.2022.day01-spec
-  (:require [speclj.core :refer :all]
-            [aoc.2022.day01 :refer :all]))
+  (:require [aoc.2022.day01 :refer :all]
+            [aoc.util :as util]
+            [speclj.core :refer :all]))
 
 ; https://adventofcode.com/2022/day/1
 
 (def base-case "1000\n2000\n3000\n\n4000\n\n5000\n6000\n\n7000\n8000\n9000\n\n10000")
-(def input-data (slurp "../input/2022/day_01.txt"))
+(def input-data (util/input-data 2022 1))
 
 (describe "AoC Day 1"
 

@@ -7,7 +7,7 @@
 
 ; https://adventofcode.com/2021/day/3
 
-(def diagnostic (util/slurp-lines "../input/2021/day_03.txt"))
+(def diagnostic (string/split-lines (util/input-data 2021 3)))
 
 (def example
   ["00100"

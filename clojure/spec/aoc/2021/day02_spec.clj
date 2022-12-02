@@ -1,12 +1,13 @@
 (ns aoc.2021.day02-spec
   (:require [aoc.util :as util]
+            [clojure.string :as string]
             [speclj.core :refer :all]
             [aoc.2021.day02 :refer :all]))
 
 ; https://adventofcode.com/2021/day/2
 
 (def input-data
-  (->> (util/slurp-lines "../input/2021/day_02.txt")
+  (->> (string/split-lines (util/input-data 2021 2))
        (map util/->words)
        (mapcat (juxt (comp keyword first) (comp util/->int second)))))
 
