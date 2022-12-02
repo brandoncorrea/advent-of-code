@@ -4,8 +4,7 @@
 
 (def split-elves #(string/split % #"\n\n"))
 
-(defn rations->calories [rations]
-  (->> rations string/split-lines (map util/->int) util/sum))
+(def rations->calories (comp util/sum util/->ints string/split-lines))
 
 (defn elves->calories [elves]
   (->> elves split-elves (map rations->calories)))
