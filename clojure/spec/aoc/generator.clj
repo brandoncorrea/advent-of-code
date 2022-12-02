@@ -10,17 +10,27 @@
 
 ; https://adventofcode.com/!Y!/day/!D!
 
-(describe \"AoC Day !D!\"
+(describe \"Year !Y! Day !D!\"
 
-  (it \"Solves Day !D!\"
-    (should= -1 (day-!D! -1)))
+  (context \"Part 1\"
+    (it \"Solves Part 1\"
+      (should= 1 (part-1 1)))
+    )
+
+  #_(context \"Part 2\"
+    (it \"Solves Part 2\"
+      (should= 1 (part-2 1)))
+    )
   )
 ")
 
 (def src-template
 "(ns aoc.!Y!.day!DS!)
 
-(defn day-!D! [n]
+(defn part-1 [n]
+  )
+
+#_(defn part-2 [n]
   )
 ")
 
