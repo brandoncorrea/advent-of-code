@@ -1,5 +1,5 @@
-# aoc
-Advent of Code Clojure Solutions
+# Advent of Code – Clojure
+Advent of Code solutions in Clojure.
 
 ### New Problem Files
 
