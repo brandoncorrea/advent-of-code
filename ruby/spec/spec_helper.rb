@@ -96,3 +96,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def input_data(year, day)
+  File.read("../input/%d/day_%02d.txt" % [year, day])
+end
