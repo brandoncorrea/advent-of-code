@@ -1,7 +1,7 @@
 class Year_2021_Day_1
   class << self
-    def next_window(window_size, coll)
-      [coll.take(window_size).sum, coll.drop(1)]
+    def next_window(window_size, depths)
+      [depths.take(window_size).sum, depths.drop(1)]
     end
 
     def increases_by_window_size(window_size, n)
