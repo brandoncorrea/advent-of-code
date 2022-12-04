@@ -1,3 +1,5 @@
+require 'string'
+
 class Year_2022_Day_2
   PART_1_SCORING = { 'A X' => 4,
                      'A Y' => 8,
