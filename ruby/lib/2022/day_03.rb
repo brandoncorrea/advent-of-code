@@ -4,15 +4,11 @@ require 'symbol'
 
 class Year_2022_Day_3
   class << self
-    def part_1(n)
-      priority_total :slice_by_compartments, n
-    end
+    def part_1(n) priority :slice_by_compartments, n end
 
-    def part_2(n)
-      priority_total :slice_by_threes, n
-    end
+    def part_2(n) priority :slice_by_threes, n end
 
-    def priority_total(slice_by_kw, rucksacks)
+    def priority(slice_by_kw, rucksacks)
       method(slice_by_kw)
         .call(rucksacks.lines)
         .map(&method(:common_char))
