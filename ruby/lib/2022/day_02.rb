@@ -20,14 +20,11 @@ class Year_2022_Day_2
                      'C Z' => 7 }
 
   class << self
-    def total_scoring(score_map, rounds)
-      rounds
-        .split("\n")
-        .map(&score_map)
-        .sum
-    end
+    def part_1(n) total_scoring PART_1_SCORING, n end
+    def part_2(n) total_scoring PART_2_SCORING, n end
 
-    def part_1(n) total_scoring(PART_1_SCORING, n) end
-    def part_2(n) total_scoring(PART_2_SCORING, n) end
+    def total_scoring(score_map, rounds)
+      rounds.chomp_lines.map(&score_map).sum
+    end
   end
 end

@@ -1,10 +1,11 @@
+require 'string'
 require 'symbol'
 
 class Year_2021_Day_3
   class << self
 
     def part_1(n)
-      diagnostics = n.lines.map(&:chomp)
+      diagnostics = n.chomp_lines
       index_range(diagnostics)
         .reduce(["", ""]) { |ratings, index| update_gamma_epsilon ratings, diagnostics, index }
         .map(&:to_i.with(2))
@@ -19,7 +20,7 @@ class Year_2021_Day_3
 
     def part_2(n)
       return 0 if n.empty?
-      diagnostics = n.lines.map(&:chomp)
+      diagnostics = n.chomp_lines
       gas_rating(diagnostics, &:<) * gas_rating(diagnostics, &:>=)
     end
 
