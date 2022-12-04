@@ -30,6 +30,9 @@ def create_spec_file(year, day)
 
 # https://adventofcode.com/#{year}/day/#{day}
 
+input_data = input_data #{year}, #{day}
+sample_data = \"\"
+
 describe \"Advent #{year} Day #{day}\" do
   let(:advent) { Year_#{year}_Day_#{day} }
 
@@ -37,12 +40,28 @@ describe \"Advent #{year} Day #{day}\" do
     it \"Solves Part 1\" do
       expect(advent.part_1(1)).to eq -1
     end
+
+    # it \"sample data\" do
+    #   expect(advent.part_1(sample_data)).to eq -1
+    # end
+
+    # it \"input data\" do
+    #   expect(advent.part_1(input_data)).to eq -1
+    # end
   end
 
   # context \"Part 2\" do
   #   it \"Solves Part 2\" do
   #     expect(advent.part_2(1)).to eq -1
   #   end
+
+  #  # it \"sample data\" do
+  #  #   expect(advent.part_2(sample_data)).to eq -1
+  #  # end
+
+  #  # it \"input data\" do
+  #  #   expect(advent.part_2(input_data)).to eq -1
+  #  # end
   # end
 end
 ")
