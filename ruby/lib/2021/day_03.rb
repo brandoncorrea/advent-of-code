@@ -1,67 +1,50 @@
+require 'symbol'
+
 class Year_2021_Day_3
   class << self
 
     def part_1(n)
-      return 0 if n.empty?
-      binary_counts = binary_counts n.lines.map(&:chomp)
-      gamma_rate(binary_counts) * epsilon_rate(binary_counts)
+      diagnostics = n.lines.map(&:chomp)
+      index_range(diagnostics)
+        .reduce(["", ""]) { |ratings, index| update_gamma_epsilon ratings, diagnostics, index }
+        .map(&:to_i.with(2))
+        .reduce(&:*)
     end
 
-    def binary_counts(lines)
-      index_range(lines).map { |index| count_at_index lines, index }
-    end
-
-    def gamma_rate(binary_counts)
-      rate_by binary_counts, &:<
-    end
-
-    def epsilon_rate(binary_counts)
-      rate_by binary_counts, &:>
-    end
-
-    def rate_by(binary_counts, &should_be_zero)
-      binary_counts
-        .map { |count| should_be_zero.call(count, 0) ? '0' : '1' }
-        .reduce(&:+)
-        .to_i(2)
+    def update_gamma_epsilon((gamma, epsilon), diagnostics, index)
+      charge_at_index(diagnostics, index).positive? ?
+        [gamma + '1', epsilon + '0'] :
+        [gamma + '0', epsilon + '1']
     end
 
     def part_2(n)
       return 0 if n.empty?
-      lines = n.lines.map(&:chomp)
-      oxygen_rating(lines) * carbon_rating(lines)
+      diagnostics = n.lines.map(&:chomp)
+      gas_rating(diagnostics, &:<) * gas_rating(diagnostics, &:>=)
     end
 
-    def oxygen_rating(lines)
-      gas_rating lines, &:<
-    end
+    def gas_rating(diagnostics, &should_be_zero)
+      index_range(diagnostics).each do |index|
+        charge = charge_at_index diagnostics, index
 
-    def carbon_rating(lines)
-      gas_rating lines, &:>=
-    end
-
-    def gas_rating(lines, &should_be_zero)
-      index_range(lines).each do |index|
-        count = count_at_index lines, index
-
-        is_desired_number = -> line {
-          should_be_zero.call(count, 0) ?
-            line[index] == '0' :
-            line[index] == '1'
+        is_desired_number = -> diagnostic {
+          should_be_zero.call(charge, 0) ?
+            diagnostic[index] == '0' :
+            diagnostic[index] == '1'
         }
 
-        break if lines.length <= 1 || lines.none?(&is_desired_number)
-        lines = lines.select &is_desired_number
+        break if diagnostics.length <= 1 || diagnostics.none?(&is_desired_number)
+        diagnostics = diagnostics.select &is_desired_number
       end
-      lines[0].to_i(2)
+      diagnostics[0].to_i(2)
     end
 
-    def count_at_index(lines, index)
-      lines.map { |line| line[index] == '1' ? 1 : -1 }.sum
+    def charge_at_index(diagnostics, index)
+      diagnostics.map { |diagnostic| diagnostic[index] == '1' ? 1 : -1 }.sum
     end
 
-    def index_range(lines)
-      (0..lines[0].length - 1)
+    def index_range(diagnostics)
+      diagnostics.empty? ? [] : (0..diagnostics[0].length - 1)
     end
   end
 end
