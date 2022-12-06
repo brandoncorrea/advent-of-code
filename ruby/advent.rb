@@ -38,29 +38,29 @@ describe \"Advent #{year} Day #{day}\" do
 
   context \"Part 1\" do
     it \"Solves Part 1\" do
-      expect(advent.part_1(1)).to eq -1
+      expect(advent.part_1 \"\").to eq -1
     end
 
     # it \"sample data\" do
-    #   expect(advent.part_1(sample_data)).to eq -1
+    #   expect(advent.part_1 sample_data).to eq -1
     # end
 
     # it \"input data\" do
-    #   expect(advent.part_1(input_data)).to eq -1
+    #   expect(advent.part_1 input_data).to eq -1
     # end
   end
 
   # context \"Part 2\" do
   #   it \"Solves Part 2\" do
-  #     expect(advent.part_2(1)).to eq -1
+  #     expect(advent.part_2 \"\").to eq -1
   #   end
 
   #  # it \"sample data\" do
-  #  #   expect(advent.part_2(sample_data)).to eq -1
+  #  #   expect(advent.part_2 sample_data).to eq -1
   #  # end
 
   #  # it \"input data\" do
-  #  #   expect(advent.part_2(input_data)).to eq -1
+  #  #   expect(advent.part_2 input_data).to eq -1
   #  # end
   # end
 end

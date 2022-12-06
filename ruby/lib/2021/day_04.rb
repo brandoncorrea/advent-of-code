@@ -45,7 +45,7 @@ class Year_2021_Day_4
     end
 
     def parse_input(n)
-      drawings, *boards = n.split("\n\n")
+      drawings, *boards = n.split "\n\n"
       [drawings.split(',').map(&:to_i),
        boards.map(&method(:parse_board))]
     end

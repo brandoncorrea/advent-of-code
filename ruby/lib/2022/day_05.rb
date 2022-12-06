@@ -27,7 +27,7 @@ class Year_2022_Day_5
     end
 
     def parse_input(n)
-      _, moves = n.split("\n\n")
+      _, moves = n.split "\n\n"
 
       [
         [

@@ -18,29 +18,29 @@ describe "Advent 2022 Day 5" do
 
   context "Part 1" do
     it "Solves Part 1" do
-      expect(advent.part_1(input_data)).to eq "WDLPFNNNB"
+      expect(advent.part_1 input_data).to eq "WDLPFNNNB"
     end
 
     # it "sample data" do
-    #   expect(advent.part_1(sample_data)).to eq -1
+    #   expect(advent.part_1 sample_data).to eq -1
     # end
 
     # it "input data" do
-    #   expect(advent.part_1(input_data)).to eq -1
+    #   expect(advent.part_1 input_data).to eq -1
     # end
   end
 
   # context "Part 2" do
   #   it "Solves Part 2" do
-  #     expect(advent.part_2(1)).to eq -1
+  #     expect(advent.part_2 "").to eq -1
   #   end
 
   #  # it "sample data" do
-  #  #   expect(advent.part_2(sample_data)).to eq -1
+  #  #   expect(advent.part_2 sample_data).to eq -1
   #  # end
 
   #  # it "input data" do
-  #  #   expect(advent.part_2(input_data)).to eq -1
+  #  #   expect(advent.part_2 input_data).to eq -1
   #  # end
   # end
 end

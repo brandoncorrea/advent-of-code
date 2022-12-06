@@ -2,29 +2,31 @@ require '2022/day_02'
 
 # https://adventofcode.com/2022/day/2
 
+input_data = input_data 2022, 2
+sample_data = "A Y\nB X\nC Z"
+
 describe "Advent 2022 Day 2" do
   let(:advent) { Year_2022_Day_2 }
 
   context "Part 1" do
     it "No rounds" do
-      expect(advent.part_1("")).to eq 0
+      expect(advent.part_1 "").to eq 0
     end
 
     it "One round" do
-      expect(advent.part_1("A X")).to eq 4
+      expect(advent.part_1 "A X").to eq 4
     end
 
     it "Two rounds" do
-      expect(advent.part_1("A X\nB Z")).to eq 13
+      expect(advent.part_1 "A X\nB Z").to eq 13
     end
 
     it "sample data" do
-      data = "A Y\nB X\nC Z"
-      expect(advent.part_1(data)).to eq 15
+      expect(advent.part_1 sample_data).to eq 15
     end
 
     it "strategy guide" do
-      expect(advent.part_1(input_data(2022, 2))).to eq 12772
+      expect(advent.part_1 input_data).to eq 12772
     end
 
     context "Scoring" do
@@ -68,24 +70,23 @@ describe "Advent 2022 Day 2" do
 
   context "Part 2" do
     it "no rounds" do
-      expect(advent.part_2('')).to eq 0
+      expect(advent.part_2 '').to eq 0
     end
 
     it "one round" do
-      expect(advent.part_2('C Z')).to eq 7
+      expect(advent.part_2 'C Z').to eq 7
     end
 
     it "two rounds" do
-      expect(advent.part_2("C Z\nA Y")).to eq 11
+      expect(advent.part_2 "C Z\nA Y").to eq 11
     end
 
     it "base case" do
-      data = "A Y\nB X\nC Z"
-      expect(advent.part_2(data)).to eq 12
+      expect(advent.part_2 sample_data).to eq 12
     end
 
     it "strategy guide" do
-      expect(advent.part_2(input_data(2022, 2))).to eq 11618
+      expect(advent.part_2 input_data).to eq 11618
     end
 
     context "Scoring" do
