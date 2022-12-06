@@ -2,9 +2,8 @@ require 'numeric'
 
 class Year_2022_Day_1
   class << self
-
-    def part_1(elves) top_calories(1, elves) end
-    def part_2(elves) top_calories(3, elves) end
+    def part_1(elves) top_calories 1, elves end
+    def part_2(elves) top_calories 3, elves end
 
     def top_calories(n, elves)
       elves

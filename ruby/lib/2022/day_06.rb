@@ -1,3 +1,5 @@
+require 'numeric'
+
 class Year_2022_Day_6
   class << self
     def part_1(data_stream) start_of_marker 4, data_stream end
@@ -9,13 +11,13 @@ class Year_2022_Day_6
         marker.include?(char) ?
           marker = reset_marker(marker, char) :
           marker += char
-        return index + 1 if marker.length == message_length
+        return index.inc if marker.length == message_length
       end
       data_stream.length
     end
 
     def reset_marker(marker, character)
-      marker[marker.index(character) + 1..-1] + character
+      marker[marker.index(character).inc .. -1] + character
     end
   end
 end

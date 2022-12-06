@@ -10,4 +10,9 @@ class String
   def chomp_lines
     self.lines(chomp: true)
   end
+
+  def downcase?
+    ord = self.ord
+    97 <= ord && ord <= 122
+  end
 end

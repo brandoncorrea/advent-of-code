@@ -33,7 +33,7 @@ class Year_2022_Day_3
     end
 
     def char_priority(char)
-      char.ord - (char.ord >= 97 ? 96 : 38)
+      char.ord - (char.downcase? ? 96 : 38)
     end
   end
 end

@@ -45,7 +45,7 @@ class Year_2021_Day_3
     end
 
     def index_range(diagnostics)
-      diagnostics.empty? ? [] : (0..diagnostics[0].length - 1)
+      diagnostics.empty? ? [] : (0..diagnostics[0].length.dec)
     end
   end
 end
