@@ -1,40 +1,24 @@
 require 'fileutils'
+require './lib/symbol'
 
-def pad_2(n) n.rjust(2, '0') end
-
-def create_lib_file(year, day)
-  lib_file = "lib/#{year}/day_#{pad_2(day)}.rb"
-  FileUtils.mkdir_p(File.dirname(lib_file))
-  unless File.exist?(lib_file)
-    File.open(lib_file, 'w') do |file|
-      file.write("class Year_#{year}_Day_#{day}
+LIB_CONTENT = "class Year_%<year>d_Day_%<day>d
   class << self
     def part_1(n) end
 
     # def part_2(n) end
   end
 end
-")
-    end
-  end
-end
+"
 
-def create_spec_file(year, day)
-  day_padded = pad_2(day)
-  spec_file = "spec/#{year}/day_#{day_padded}_spec.rb"
-  FileUtils.mkdir_p(File.dirname(spec_file))
-  unless File.exist?(spec_file)
-    File.open(spec_file, 'w') do |file|
-      file.write(
-        "require '#{year}/day_#{day_padded}'
+SPEC_CONTENT = "require '%<year>d/day_%<day>02d'
 
-# https://adventofcode.com/#{year}/day/#{day}
+# https://adventofcode.com/%<year>d/day/%<day>d
 
-input_data = input_data #{year}, #{day}
+input_data = input_data %<year>d, %<day>d
 sample_data = \"\"
 
-describe \"Advent #{year} Day #{day}\" do
-  let(:advent) { Year_#{year}_Day_#{day} }
+describe \"Advent %<year>d Day %<day>d\" do
+  let(:advent) { Year_%<year>d_Day_%<day>d }
 
   context \"Part 1\" do
     it \"Solves Part 1\" do
@@ -64,12 +48,19 @@ describe \"Advent #{year} Day #{day}\" do
   #  # end
   # end
 end
-")
-    end
-  end
+"
+
+def write_content(path, content_format, year, day)
+  File.open path, 'w', &:write.with(content_format % {year: year, day: day})
+end
+
+def create_file(path_format, content_format, year, day)
+  path = path_format % [year, day]
+  FileUtils.mkdir_p File.dirname path
+  write_content path, content_format, year, day unless File.exist? path
 end
 
 year = ARGV[0]
 day = ARGV[1]
-create_lib_file(year, day)
-create_spec_file(year, day)
+create_file "lib/%d/day_%02d.rb", LIB_CONTENT, year, day
+create_file "spec/%d/day_%02d_spec.rb", SPEC_CONTENT, year, day
