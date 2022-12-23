@@ -5,8 +5,9 @@ open System
 module Day1 =
 
     let intOrDefault (s:string) =
-        let parsed, i = Int32.TryParse s
-        if parsed then i else 0
+        match Int32.TryParse s with
+            | _, i -> i
+            | _ -> 0
 
     let elfToCalories (s:string) =
         s.Split("\n")
