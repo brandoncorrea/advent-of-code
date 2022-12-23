@@ -1,4 +1,4 @@
-﻿module FSAdventTest.Y2022
+﻿module FSAdventTest.Y2022.Day1
 
 open NUnit.Framework
 open System.IO
