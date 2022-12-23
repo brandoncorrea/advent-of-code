@@ -1,5 +1,8 @@
 /target
 /lib
+bin/
+obj/
+.vs/
 /classes
 /checkouts
 pom.xml
@@ -11,6 +14,7 @@ Gemfile.lock
 .lein-failures
 .lein-plugins
 .lein-repl-history
+.advent-session
 .idea
 .DS_Store
 target/
