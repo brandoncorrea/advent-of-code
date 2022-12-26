@@ -9,7 +9,7 @@ class Year_2022_Day_4
 
     def reconsiderations(should_reconsider_kw, n)
       n.chomp_lines
-       .map(&:scan.with(/\d+/))
+       .map(&:scan_digits)
        .map(&:map.with(&:to_i))
        .count(&method(should_reconsider_kw))
     end

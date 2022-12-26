@@ -15,4 +15,8 @@ class String
     ord = self.ord
     97 <= ord && ord <= 122
   end
+
+  def scan_digits
+    self.scan(/\d+/)
+  end
 end
