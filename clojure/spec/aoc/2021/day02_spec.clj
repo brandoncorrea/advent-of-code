@@ -1,23 +1,19 @@
 (ns aoc.2021.day02-spec
-  (:require [aoc.util :as util]
+  (:require [aoc.2021.day02 :refer :all]
+            [aoc.util :as util]
             [clojure.string :as string]
-            [speclj.core :refer :all]
-            [aoc.2021.day02 :refer :all]))
+            [speclj.core :refer :all]))
 
 ; https://adventofcode.com/2021/day/2
 
-(def input-data
-  (->> (string/split-lines (util/input-data 2021 2))
+(defn parsed-input [input-data-fn]
+  (->> (input-data-fn 2021 2)
+       string/split-lines
        (map util/->words)
        (mapcat (juxt (comp keyword first) (comp util/->int second)))))
 
-(def example
-  [:forward 5
-   :down 5
-   :forward 8
-   :up 3
-   :down 8
-   :forward 2])
+(def input-data (parsed-input util/input-data))
+(def sample-data (parsed-input util/sample-data))
 
 (describe "AoC Day 2 Part 1"
   (it "No moves results in 0"
@@ -33,7 +29,7 @@
   (it "Ups are taken as negatives"
     (should= 21 (day-2-p1 [:down 4 :up 3 :down 20 :forward 1])))
   (it "Solves AoC Example"
-    (should= 150 (day-2-p1 example)))
+    (should= 150 (day-2-p1 sample-data)))
   (it "Solves AoC Test Data"
     (should= 1938402 (day-2-p1 input-data))))
 
@@ -47,6 +43,6 @@
   (it "Down and Forward results in down times forward squared"
     (should= 108 (day-2-p2 [:down 3 :forward 6])))
   (it "Solves AoC Example"
-    (should= 900 (day-2-p2 example)))
+    (should= 900 (day-2-p2 sample-data)))
   (it "Solves AoC Test Data"
     (should= 1947878632 (day-2-p2 input-data))))

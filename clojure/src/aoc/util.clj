@@ -11,5 +11,7 @@
 (def lt? (partial apply <))
 (defn pow [n e] (apply * (repeat e n)))
 (defn ->words [s] (string/split s #"\s"))
-(def slurp-lines (comp string/split-lines slurp))
-(defn input-data [year day] (slurp (format "../input/%d/day_%02d.txt" year day)))
+
+(defn- folder-data [folder year day] (slurp (format "../%s/%d/day_%02d.txt" folder year day)))
+(def input-data (partial folder-data "input"))
+(def sample-data (partial folder-data "sample"))

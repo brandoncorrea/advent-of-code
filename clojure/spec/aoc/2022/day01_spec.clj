@@ -5,8 +5,8 @@
 
 ; https://adventofcode.com/2022/day/1
 
-(def base-case "1000\n2000\n3000\n\n4000\n\n5000\n6000\n\n7000\n8000\n9000\n\n10000")
 (def input-data (util/input-data 2022 1))
+(def sample-data (util/sample-data 2022 1))
 
 (describe "AoC Day 1"
 
@@ -32,8 +32,8 @@
     (it "one elf with two rations"
       (should= 3 (part-1 "1\n2")))
 
-    (it "base case"
-      (should= 24000 (part-1 base-case)))
+    (it "solves sample data"
+      (should= 24000 (part-1 sample-data)))
 
     (it "solves test data"
       (should= 72511 (part-1 input-data))))
@@ -60,8 +60,8 @@
     (it "four elves"
       (should= 9 (part-2 "1\n\n2\n\n3\n\n4")))
 
-    (it "base case"
-      (should= 45000 (part-2 base-case)))
+    (it "sample data"
+      (should= 45000 (part-2 sample-data)))
 
     (it "test data"
       (should= 212117 (part-2 input-data)))))

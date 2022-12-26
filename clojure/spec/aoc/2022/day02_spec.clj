@@ -1,12 +1,12 @@
 (ns aoc.2022.day02-spec
-  (:require
-    [aoc.util :as util]
-    [speclj.core :refer :all]
-    [aoc.2022.day02 :refer :all]))
+  (:require [aoc.2022.day02 :refer :all]
+            [aoc.util :as util]
+            [speclj.core :refer :all]))
 
 ; https://adventofcode.com/2022/day/2
 
 (def input-data (util/input-data 2022 2))
+(def sample-data (util/sample-data 2022 2))
 
 (describe "Year 2022 Day 2"
 
@@ -22,7 +22,7 @@
       (should= 2 (part-1 "C Y"))
       (should= 6 (part-1 "C Z"))
       (should= 10 (part-1 "C Z\nA X"))
-      (should= 15 (part-1 "A Y\nB X\nC Z"))
+      (should= 15 (part-1 sample-data))
       (should= 12772 (part-1 input-data))))
 
   (context "Part 2"
@@ -37,6 +37,6 @@
       (should= 6 (part-2 "C Y"))
       (should= 7 (part-2 "C Z"))
       (should= 10 (part-2 "C Z\nA X"))
-      (should= 12 (part-2 "A Y\nB X\nC Z"))
+      (should= 12 (part-2 sample-data))
       (should= 11618 (part-2 input-data))))
   )

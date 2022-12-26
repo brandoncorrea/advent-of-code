@@ -1,27 +1,13 @@
 (ns aoc.2021.day03-spec
-  (:require
-    [aoc.util :as util]
-    [clojure.string :as string]
-    [speclj.core :refer :all]
-    [aoc.2021.day03 :refer :all]))
+  (:require [aoc.2021.day03 :refer :all]
+            [aoc.util :as util]
+            [clojure.string :as string]
+            [speclj.core :refer :all]))
 
 ; https://adventofcode.com/2021/day/3
 
 (def diagnostic (string/split-lines (util/input-data 2021 3)))
-
-(def example
-  ["00100"
-   "11110"
-   "10110"
-   "10111"
-   "10101"
-   "01111"
-   "00111"
-   "11100"
-   "10000"
-   "11001"
-   "00010"
-   "01010"])
+(def example (string/split-lines (util/sample-data 2021 3)))
 
 (describe "AoC Day 3"
 

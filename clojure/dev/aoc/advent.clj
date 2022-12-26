@@ -5,21 +5,37 @@
 
 (def spec-template
 "(ns aoc.!Y!.day!DS!-spec
-  (:require [speclj.core :refer :all]
-            [aoc.!Y!.day!DS! :refer :all]))
+  (:require [aoc.!Y!.day!DS! :refer :all]
+            [aoc.util :as util]
+            [speclj.core :refer :all]))
 
 ; https://adventofcode.com/!Y!/day/!D!
+
+(def input-data (util/input-data !Y! !D!))
+(def sample-data (util/sample-data !Y! !D!))
 
 (describe \"Year !Y! Day !D!\"
 
   (context \"Part 1\"
     (it \"Solves Part 1\"
       (should= 1 (part-1 1)))
+
+    #_(it \"Sample Data\"
+      (should= 1 (part-1 sample-data)))
+
+    #_(it \"Input Data\"
+      (should= 1 (part-1 input-data)))
     )
 
   #_(context \"Part 2\"
     (it \"Solves Part 2\"
       (should= 1 (part-2 1)))
+
+    #_(it \"Sample Data\"
+      (should= 1 (part-1 sample-data)))
+
+    #_(it \"Input Data\"
+      (should= 1 (part-1 input-data)))
     )
   )
 ")

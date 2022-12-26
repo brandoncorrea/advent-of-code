@@ -6,6 +6,7 @@
 ; https://adventofcode.com/2022/day/3
 
 (def input-data (util/input-data 2022 3))
+(def sample-data (util/sample-data 2022 3))
 
 (describe "Year 2022 Day 3"
 
@@ -29,6 +30,6 @@
       (should= 2 (part-2 "ab\nbc"))
       (should= 18 (part-2 "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg"))
       (should= 52 (part-2 "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw"))
-      (should= 70 (part-2 "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw"))
+      (should= 70 (part-2 sample-data))
       (should= 2631 (part-2 input-data))))
   )
