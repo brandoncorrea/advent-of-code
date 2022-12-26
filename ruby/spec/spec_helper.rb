@@ -97,6 +97,14 @@ RSpec.configure do |config|
 =end
 end
 
+def data_for_date(folder, year, day)
+  File.read("../%s/%d/day_%02d.txt" % [folder, year, day])
+end
+
 def input_data(year, day)
-  File.read("../input/%d/day_%02d.txt" % [year, day])
+  data_for_date "input", year, day
+end
+
+def sample_data(year, day)
+  data_for_date "sample", year, day
 end

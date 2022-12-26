@@ -15,7 +15,7 @@ SPEC_CONTENT = %q[require '%<year>d/day_%<day>02d'
 # https://adventofcode.com/%<year>d/day/%<day>d
 
 input_data = input_data %<year>d, %<day>d
-sample_data = ""
+sample_data = sample_data %<year>d, %<day>d
 
 describe "Advent %<year>d Day %<day>d" do
   let(:advent) { Year_%<year>d_Day_%<day>d }

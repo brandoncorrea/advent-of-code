@@ -3,15 +3,7 @@ require '2022/day_05'
 # https://adventofcode.com/2022/day/5
 
 input_data = input_data 2022, 5
-sample_data = "    [D]
-[N] [C]
-[Z] [M] [P]
- 1   2   3
-
-move 1 from 2 to 1
-move 3 from 1 to 3
-move 2 from 2 to 1
-move 1 from 1 to 2"
+sample_data = sample_data 2022, 5
 
 describe "Advent 2022 Day 5" do
   let(:advent) { Year_2022_Day_5 }

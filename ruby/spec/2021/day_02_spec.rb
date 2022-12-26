@@ -3,7 +3,7 @@ require '2021/day_02'
 # https://adventofcode.com/2021/day/2
 
 input_data = input_data 2021, 2
-sample_data = "forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2"
+sample_data = sample_data 2021, 2
 
 describe "Advent 2021 Day 2" do
   let(:advent) { Year_2021_Day_2 }

@@ -3,7 +3,7 @@ require '2022/day_01'
 # https://adventofcode.com/2022/day/1
 
 input_data = input_data 2022, 1
-sample_data = "1000\n2000\n3000\n\n4000\n\n5000\n6000\n\n7000\n8000\n9000\n\n10000"
+sample_data = sample_data 2022, 1
 
 describe "Advent 2022 Day 1" do
   let(:advent) { Year_2022_Day_1 }

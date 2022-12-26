@@ -3,11 +3,13 @@ require '2022/day_06'
 # https://adventofcode.com/2022/day/6
 
 input_data = input_data 2022, 6
-sample_data_1 = "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
-sample_data_2 = "bvwbjplbgvbhsrlpgdmjqwftvncz"
-sample_data_3 = "nppdvjthqldpwncqszvftbrmjlhg"
-sample_data_4 = "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"
-sample_data_5 = "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"
+sample_data = sample_data 2022, 6
+sample_data_lines = sample_data.lines
+sample_data_1 = sample_data_lines[0]
+sample_data_2 = sample_data_lines[1]
+sample_data_3 = sample_data_lines[2]
+sample_data_4 = sample_data_lines[3]
+sample_data_5 = sample_data_lines[4]
 
 describe "Advent 2022 Day 6" do
   let(:advent) { Year_2022_Day_6 }
