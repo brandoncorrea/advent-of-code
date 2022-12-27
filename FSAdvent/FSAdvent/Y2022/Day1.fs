@@ -1,19 +1,17 @@
 ﻿module FSAdvent.Y2022.Day1
-
 open System
 
-let intOrDefault (s:string) =
-    match Int32.TryParse s with
-        | _, i -> i
-        | _ -> 0
-
+let intOrDefault s =
+    try Int32.Parse s
+    with _ -> 0
+    
 let elfToCalories (s:string) =
-    s.Split("\n")
+    s.Split "\n"
     |> Seq.map intOrDefault
     |> Seq.sum
 
 let topElfCalories (n:int) (s:string) =
-    s.Split("\n\n")
+    s.Split "\n\n"
     |> Seq.map elfToCalories
     |> Seq.sortDescending
     |> Seq.truncate n

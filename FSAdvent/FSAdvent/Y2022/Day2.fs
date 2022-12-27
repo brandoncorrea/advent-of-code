@@ -25,7 +25,7 @@ let part2Scores =
     |> Map.ofList
 
 let rpcScore (scores:Map<string, int>) (s:string) =
-    s.Split("\n")
+    s.Split "\n"
     |> Seq.choose scores.TryFind
     |> Seq.sum
 

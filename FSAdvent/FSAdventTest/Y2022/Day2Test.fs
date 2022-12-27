@@ -1,12 +1,7 @@
-﻿module FSAdventTest.Y2022.Day2
-
-open NUnit.Framework
-open System.IO
+﻿module FSAdventTest.Y2022.Day2Test
 open FSAdvent.Y2022
-
-module TestData =
-    let sample = "A Y\nB X\nC Z"
-    let input() = File.ReadAllText("../../../../../input/2022/day_02.txt")
+open FSAdventTest
+open NUnit.Framework
 
 [<Test>]
 [<TestCase("", 0)>]
@@ -24,11 +19,11 @@ let Part1 (input, expected) =
 
 [<Test>]
 let Part1SampleData() =
-    Assert.AreEqual(15, Day2.part1 TestData.sample)
+    Assert.AreEqual(15, Day2.part1(TestData.sample 2022 2))
 
 [<Test>]
 let Part1InputData() =
-    Assert.AreEqual(12772, Day2.part1(TestData.input()))
+    Assert.AreEqual(12772, Day2.part1(TestData.input 2022 2))
 
 [<Test>]
 [<TestCase("", 0)>]
@@ -46,8 +41,8 @@ let Part2 (input, expected) =
 
 [<Test>]
 let Part2SampleData() =
-    Assert.AreEqual(12, Day2.part2 TestData.sample)
+    Assert.AreEqual(12, Day2.part2(TestData.sample 2022 2))
 
 [<Test>]
 let Part2InputData() =
-    Assert.AreEqual(11618, Day2.part2(TestData.input()))
+    Assert.AreEqual(11618, Day2.part2(TestData.input 2022 2))
