@@ -1,6 +1,10 @@
 ﻿namespace FSAdvent.Core
 open System
 
+module Functions =
+    let inc n = n + 1
+    let isNegative n = n < 0
+
 module Seq =
     let remove pred = Seq.filter (not << pred)
     let every pred coll =

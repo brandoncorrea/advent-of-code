@@ -12,6 +12,7 @@
     <Compile Include="Y2022\Day1Test.fs" />
     <Compile Include="Y2022\Day2Test.fs" />
     <Compile Include="Y2022\Day3Test.fs" />
+    <Compile Include="Y2015\Day1Test.fs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="Y2022\" />
+    <Folder Include="Y2015\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FSAdvent\FSAdvent.fsproj" />
