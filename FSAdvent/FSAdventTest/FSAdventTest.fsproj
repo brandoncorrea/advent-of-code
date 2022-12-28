@@ -11,6 +11,7 @@
     <Compile Include="TestData.fs" />
     <Compile Include="Y2022\Day1Test.fs" />
     <Compile Include="Y2022\Day2Test.fs" />
+    <Compile Include="Y2022\Day3Test.fs" />
   </ItemGroup>
 
   <ItemGroup>

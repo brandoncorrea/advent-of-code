@@ -1,4 +1,5 @@
 ﻿module FSAdvent.Y2022.Day2
+open FSAdvent.Core.Extensions
 
 let part1Scores =
     ["A X", 4;
@@ -25,7 +26,7 @@ let part2Scores =
     |> Map.ofList
 
 let rpcScore (scores:Map<string, int>) (s:string) =
-    s.Split "\n"
+    s.Lines
     |> Seq.choose scores.TryFind
     |> Seq.sum
 
