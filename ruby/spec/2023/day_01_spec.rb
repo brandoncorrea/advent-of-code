@@ -83,12 +83,12 @@ describe "Advent 2023 Day 1" do
       expect(advent.part_2 "eightwo").to eq 82
     end
 
-   it "sample data" do
-     expect(advent.part_2 sample_data_part_2).to eq 281
-   end
+    it "sample data" do
+      expect(advent.part_2 sample_data_part_2).to eq 281
+    end
 
-   it "input data" do
-     expect(advent.part_2 input_data).to eq 54649
-   end
+    it "input data" do
+      expect(advent.part_2 input_data).to eq 54649
+    end
   end
 end
