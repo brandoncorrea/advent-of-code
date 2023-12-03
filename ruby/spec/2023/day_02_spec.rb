@@ -6,9 +6,9 @@ input_data = input_data 2023, 2
 sample_data = sample_data 2023, 2
 
 describe "Advent 2023 Day 2" do
+  let(:advent) { Year_2023_Day_2.new(12, 13, 14) }
 
   context "Part 1" do
-    let(:advent) { Year_2023_Day_2.new(12, 13, 14) }
 
     it "plays no games" do
       expect(advent.part_1 "").to eq 0
@@ -59,17 +59,33 @@ describe "Advent 2023 Day 2" do
     end
   end
 
-  # context "Part 2" do
-  #   it "Solves Part 2" do
-  #     expect(advent.part_2 "").to eq -1
-  #   end
+  context "Part 2" do
+    it "played no games" do
+      expect(advent.part_2 "").to eq 0
+    end
 
-  #  # it "sample data" do
-  #  #   expect(advent.part_2 sample_data).to eq -1
-  #  # end
+    it "one game with one color each" do
+      expect(advent.part_2 "Game 1: 1 blue, 1 red, 1 green").to eq 1
+    end
 
-  #  # it "input data" do
-  #  #   expect(advent.part_2 input_data).to eq -1
-  #  # end
-  # end
+    it "1, 2, 3 game" do
+      expect(advent.part_2 "Game 1: 1 blue, 2 red, 3 green").to eq 6
+    end
+
+    it "differing color count in second round of a game" do
+      expect(advent.part_2 "Game 1: 1 blue, 3 red, 3 green; 2 blue, 1 red, 4 green").to eq 24
+    end
+
+    it "two games" do
+      expect(advent.part_2 "Game 1: 1 blue, 1 red, 1 green\nGame 2: 2 blue, 1 red, 4 green").to eq 9
+    end
+
+    it "sample data" do
+      expect(advent.part_2 sample_data).to eq 2286
+    end
+
+    it "input data" do
+      expect(advent.part_2 input_data).to eq 49710
+    end
+  end
 end

@@ -6,14 +6,26 @@ class Year_2023_Day_2
   end
 
   def part_1(n)
-    n.split("\n")
-     .map(&Game.method(:from_string))
-     .filter(&method(:possible_game?))
-     .map(&:id)
-     .reduce(0, &:+)
+    string_to_games(n)
+      .filter(&method(:possible_game?))
+      .map(&:id)
+      .sum
   end
 
-  def part_2(n) end
+  def part_2(n)
+    string_to_games(n)
+      .map(&:power)
+      .sum
+  end
+
+  def string_to_games(s)
+    s.split("\n")
+     .map(&Game.method(:from_string))
+  end
+
+  def sum(coll)
+    coll.reduce(0, &:+)
+  end
 
   def possible_game?(game)
     game.rounds
@@ -38,6 +50,20 @@ class Game
 
   def add_round(round)
     @rounds << round
+  end
+
+  def power
+    red = 0
+    blue = 0
+    green = 0
+
+    for round in @rounds
+      red = [red, round.red].max
+      blue = [blue, round.blue].max
+      green = [green, round.green].max
+    end
+
+    red * blue * green
   end
 
   class << self
@@ -74,5 +100,4 @@ class Round
       round
     end
   end
-
 end
