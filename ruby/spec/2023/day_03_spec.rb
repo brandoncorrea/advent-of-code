@@ -74,17 +74,25 @@ describe "Advent 2023 Day 3" do
     end
   end
 
-  # context "Part 2" do
-  #   it "Solves Part 2" do
-  #     expect(advent.part_2 "").to eq -1
-  #   end
+  context "Part 2" do
+    it "empty schematic" do
+      expect(advent.part_2 "").to eq 0
+    end
 
-  #  # it "sample data" do
-  #  #   expect(advent.part_2 sample_data).to eq -1
-  #  # end
+    it "one gear on the same line" do
+      expect(advent.part_2 "2*3").to eq 6
+    end
 
-  #  # it "input data" do
-  #  #   expect(advent.part_2 input_data).to eq -1
-  #  # end
-  # end
+    it "one gear on different lines" do
+      expect(advent.part_2 "2\n*\n3").to eq 6
+    end
+
+    it "sample data" do
+      expect(advent.part_2 sample_data).to eq 467835
+    end
+
+    it "input data" do
+      expect(advent.part_2 input_data).to eq 81721933
+    end
+  end
 end

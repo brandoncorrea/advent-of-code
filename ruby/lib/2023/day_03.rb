@@ -82,14 +82,54 @@ class Year_2023_Day_3
         .map { |index| [line_no, index] }
     end
 
+    def part_2(n)
+      sum = 0
+      lines = n.split("\n")
+      lines.each_with_index do |line, line_no|
+        line.each_char.with_index do |char, char_no|
+          if char == '*'
+            sum += gear_ratio lines, line_no, char_no
+          end
+        end
+      end
+      sum
+    end
+
+    def gear_ratio(lines, line_no, char_no)
+      parts = adjacent_parts lines, line_no, char_no
+      if parts.length == 2
+        parts[0] * parts[1]
+      else
+        0
+      end
+    end
+
+    def adjacent_parts(lines, line_no, index)
+      min = line_no == 0 ? line_no : line_no - 1
+      max = line_no == lines.length - 1 ? line_no : line_no + 1
+      (min..max)
+        .map { |line| part_numbers lines[line], index }
+        .flatten
+        .map(&:to_i)
+    end
+
+    def part_numbers(line, index)
+      left = right = index
+      left -= 1 while left > 0 && digit?(line[left - 1])
+      right += 1 while right < line.length - 1 && digit?(line[right + 1])
+      digits line[left..right]
+    end
+
+    def digits(s)
+      s.scan(/\d+/)
+    end
+
     def symbol?(char)
-      /[^[\d.]]/.match(char)
+      /[^[\d.]]/.match?(char)
     end
 
     def digit?(s)
-      /\d/.match(s)
+      /\d/.match?(s)
     end
-
-    # def part_2(n) end
   end
 end
