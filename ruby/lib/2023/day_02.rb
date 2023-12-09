@@ -23,10 +23,6 @@ class Year_2023_Day_2
      .map(&Game.method(:from_string))
   end
 
-  def sum(coll)
-    coll.reduce(0, &:+)
-  end
-
   def possible_game?(game)
     game.rounds
         .all?(&method(:possible_round?))

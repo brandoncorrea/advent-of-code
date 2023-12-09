@@ -24,7 +24,7 @@ class Year_2023_Day_1
     def decode_calibrations(text, re)
       text.split("\n")
           .map { |line| decode_line line, re }
-          .reduce(0, &:+)
+          .sum
     end
 
     def decode_line(line, re)

@@ -6,7 +6,7 @@ class Year_2023_Day_3
            .times
            .map { |line_no| collect_line_parts lines, line_no }
            .flatten
-           .reduce(0, &:+)
+           .sum
     end
 
     def collect_line_parts(lines, line_no)

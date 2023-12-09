@@ -46,17 +46,13 @@ describe "Advent 2023 Day 9" do
     end
   end
 
-  # context "Part 2" do
-  #   it "Solves Part 2" do
-  #     expect(advent.part_2 "").to eq -1
-  #   end
+  context "Part 2" do
+    it "sample data" do
+      expect(advent.part_2 sample_data).to eq 2
+    end
 
-  #  # it "sample data" do
-  #  #   expect(advent.part_2 sample_data).to eq -1
-  #  # end
-
-  #  # it "input data" do
-  #  #   expect(advent.part_2 input_data).to eq -1
-  #  # end
-  # end
+    it "input data" do
+      expect(advent.part_2 input_data).to eq 1118
+    end
+  end
 end

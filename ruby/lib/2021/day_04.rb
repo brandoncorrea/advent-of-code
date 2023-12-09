@@ -24,7 +24,7 @@ class Year_2021_Day_4
     end
 
     def board_score(board, last_number)
-      board.flatten.compact.reduce(&:+) * last_number
+      board.flatten.compact.sum * last_number
     end
 
     def call_number(boards, number)
