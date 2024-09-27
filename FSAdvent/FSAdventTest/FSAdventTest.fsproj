@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
     <GenerateProgramFile>false</GenerateProgramFile>
@@ -13,6 +13,7 @@
     <Compile Include="Y2022\Day2Test.fs" />
     <Compile Include="Y2022\Day3Test.fs" />
     <Compile Include="Y2015\Day1Test.fs" />
+    <Compile Include="Day2Test.fs" />
   </ItemGroup>
 
   <ItemGroup>

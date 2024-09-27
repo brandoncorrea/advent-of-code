@@ -1,10 +1,10 @@
 ﻿module FSAdvent.Y2022.Day1
-open System
 open FSAdvent.Core
 open FSAdvent.Core.Extensions
+open FSAdvent.Core.Functions
 
 let intOrDefault s =
-    try Int32.Parse s
+    try toi s
     with _ -> 0
 
 let elfToCalories (s:string) =

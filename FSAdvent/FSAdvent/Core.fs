@@ -4,12 +4,19 @@ open System
 module Functions =
     let inc n = n + 1
     let isNegative n = n < 0
+    let multiply (a, b) = a * b
+    let toi obj = Int32.Parse obj
 
 module Seq =
+
     let remove pred = Seq.filter (not << pred)
     let every pred coll =
         let defector = Seq.tryFind (not << pred) coll
         defector.IsNone
+
+    let cycle seq =
+        let coll = Seq.toArray seq
+        Seq.initInfinite (fun i -> coll.[i % coll.Length])
 
     // Taken from Nathan B Evans: https://gist.github.com/nbevans/9429542
     let toChunks n (s:seq<'t>) = seq {
