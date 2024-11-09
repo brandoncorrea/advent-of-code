@@ -4,18 +4,12 @@ public class Day1 {
 
     public static int part1(String input) {
         if (input == null) return 0;
-        return input
-                .chars()
-                .map(Day1::step)
-                .reduce(0, Integer::sum);
+        return input.chars().map(Day1::step).sum();
     }
 
-    static int step(int step) {
-        if (step == '(') {
-            return 1;
-        } else if (step == ')') {
-            return -1;
-        }
+    static int step(int direction) {
+        if (direction == '(') return 1;
+        else if (direction == ')') return -1;
         return 0;
     }
 }
