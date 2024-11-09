@@ -64,4 +64,50 @@ public class Day1Test {
             assertEquals(expected, Day1.part1(input));
         }
     }
+
+    @Nested
+    class Part2 {
+
+        @Test
+        public void emptyInputIsNegative() {
+            assertBasementAt(-1, null);
+            assertBasementAt(-1, "");
+        }
+
+        @Test
+        public void firstMoveGoesUnderground() {
+            assertBasementAt(1, ")");
+        }
+
+        @Test
+        public void neverGoesUnderground() {
+            assertBasementAt(-1, "(");
+            assertBasementAt(-1, "()((");
+        }
+
+        @Test
+        public void allMovesGoDown() {
+            assertBasementAt(1, ")))");
+        }
+
+        @Test
+        public void entersBasementOnThirdStep() {
+            assertBasementAt(3, "())");
+        }
+
+        @Test
+        public void entersBasementOnFifthStep() {
+            assertBasementAt(5, "()())");
+        }
+
+        @Test
+        public void puzzleInput() throws Exception {
+            String input = TestHelper.puzzleInput(2015, 1);
+            assertBasementAt(1783, input);
+        }
+
+        void assertBasementAt(int step, String input) {
+            assertEquals(step, Day1.part2(input));
+        }
+    }
 }
