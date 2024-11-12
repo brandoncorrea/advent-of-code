@@ -9,9 +9,10 @@ public class Day2 {
 
     public static int part1(String input) {
         return Arrays
-                .stream(input.split("\n"))
+                .stream(partGifts(input))
                 .filter(item -> !item.isBlank())
-                .mapToInt(Day2::giftPaper).sum();
+                .mapToInt(Day2::giftPaper)
+                .sum();
     }
 
     public static int giftPaper(String gift) {
@@ -23,5 +24,11 @@ public class Day2 {
         var height = dimensions[2] * dimensions[0];
         var smallestSide = min(min(length, depth), height);
         return (2 * (length + depth + height)) + smallestSide;
+    }
+
+    public static String[] partGifts(String input) {
+        if (input == null)
+            return new String[0];
+        return input.split("\n");
     }
 }
