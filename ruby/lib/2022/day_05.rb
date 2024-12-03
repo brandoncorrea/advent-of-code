@@ -48,8 +48,7 @@ class Year_2022_Day_5
         # ],
         moves
           .lines
-          .map(&:scan_digits)
-          .map(&:map.with(&:to_i))
+          .map(&:scan_ints)
       ]
     end
 

@@ -16,7 +16,7 @@ class String
     97 <= ord && ord <= 122
   end
 
-  def scan_digits
-    self.scan(/\d+/)
+  def scan_ints
+    self.scan(/\d+/).map(&:to_i)
   end
 end

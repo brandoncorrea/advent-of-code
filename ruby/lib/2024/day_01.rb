@@ -34,8 +34,7 @@ class Year_2024_Day_1
 
     def parse_input(input)
       input.chomp_lines
-           .flat_map(&:scan_digits)
-           .map(&:to_i)
+           .flat_map(&:scan_ints)
            .partition
            .with_index { |_, idx| idx.even? }
     end
