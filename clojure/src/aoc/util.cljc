@@ -11,8 +11,8 @@
 (defn ->words [s] (str/split s #"\s"))
 
 (defn char-code [c]
-  #?(:clj  (int c)
-     :cljs (js-invoke c "charCodeAt" 0)))
+  #?(:cljs    (js-invoke c "charCodeAt" 0)
+     :default (int c)))
 
 (defn populated-lines [s]
   (->> (str/split-lines s)
@@ -22,7 +22,7 @@
   (reduce #(when (pred %2) (reduced %2)) nil coll))
 
 (defn render-template [template mapping]
-   (reduce
-     (fn [src [key value]] (str/replace src (str "!" key "!") (str value)))
-     template
-     (seq mapping)))
+  (reduce
+    (fn [src [key value]] (str/replace src (str "!" key "!") (str value)))
+    template
+    (seq mapping)))

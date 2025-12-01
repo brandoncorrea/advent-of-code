@@ -3,7 +3,7 @@
             [aoc.util :as util]
             [clojure.string :as str]
             [aoc.input.y2021.day01 :as input]
-            [speclj.core #?(:clj :refer :cljs :refer-macros) [describe it should=]]))
+            [speclj.core #?(:cljs :refer-macros :default :refer) [describe it should=]]))
 
 ; https://adventofcode.com/2021/day/2
 

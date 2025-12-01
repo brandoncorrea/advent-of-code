@@ -1,0 +1,5 @@
+{:paths   ["src" "resources"]
+ :aliases {:test {:extra-paths ["spec"]}
+           :spec {:extra-deps {io.github.slagyr/speclj {:git/tag "3.10.0" :git/sha "b1daa29"}}
+                  :main-opts  ["-m" "speclj.main" "-c" "spec" "-p" "src"]}}
+ }

@@ -2,7 +2,7 @@
   (:require [aoc.y2025.day01 :as sut]
             [aoc.input.y2025.day01 :as input]
             [aoc.sample.y2025.day01 :as sample]
-            [speclj.core #?(:clj :refer :cljs :refer-macros) [describe context it should=]]))
+            [speclj.core #?(:cljs :refer-macros :default :refer) [describe context it should=]]))
 
 ; https://adventofcode.com/2025/day/1
 
