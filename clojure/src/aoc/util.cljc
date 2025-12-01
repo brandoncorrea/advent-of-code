@@ -12,7 +12,7 @@
 
 (defn char-code [c]
   #?(:clj  (int c)
-     :cljs (.charCodeAt c 0)))
+     :cljs (js-invoke c "charCodeAt" 0)))
 
 (defn populated-lines [s]
   (->> (str/split-lines s)
