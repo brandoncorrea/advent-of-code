@@ -1,0 +1,31 @@
+{:ns-prefix      "aoc"
+ :ignore-errors  ["goog/i18n/bidi.js"]
+ :ignore-console ["Download the React DevTools"]
+ :env-keys       ["cc.env" "CC_ENV"]
+ ;:run-cmd        "node resources/public/specs/speclj.js"
+ :development    {:cache-analysis true
+                  :optimizations  :none
+                  :output-dir     "target/cljs/"
+                  :output-to      "target/cljs/aoc.js"
+                  :pretty-print   true
+                  :source-map     true
+                  :sources        ["spec" "src" "resources"]
+                  :specs          true
+                  :verbose        false
+                  :watch-fn       c3kit.scaffold.cljs/on-dev-compiled
+                  :parallel-build true
+                  }
+ :ci             {
+                  :cache-analysis false
+                  :infer-externs  true
+                  :optimizations  :advanced
+                  :output-dir     "target/cljs/"
+                  :output-to      "target/cljs/aoc.js"
+                  :pretty-print   false
+                  :sources        ["spec" "src" "resources"]
+                  :specs          true
+                  :verbose        false
+                  :language-in    :ecmascript-next
+                  :language-out   :ecmascript-next
+                  }
+ }

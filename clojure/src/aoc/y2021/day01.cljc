@@ -1,4 +1,4 @@
-(ns aoc.2021.day01
+(ns aoc.y2021.day01
   (:require [aoc.util :as util]))
 
 (defn increases [nums]

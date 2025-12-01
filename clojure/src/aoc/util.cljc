@@ -10,6 +10,10 @@
 (defn lt? [vals] (apply < vals))
 (defn ->words [s] (str/split s #"\s"))
 
+(defn char-code [c]
+  #?(:clj  (int c)
+     :cljs (.charCodeAt c 0)))
+
 (defn populated-lines [s]
   (->> (str/split-lines s)
        (remove str/blank?)))
@@ -17,6 +21,9 @@
 (defn ffilter [pred coll]
   (reduce #(when (pred %2) (reduced %2)) nil coll))
 
-(defn- folder-data [folder year day] (slurp (format "../%s/%d/day_%02d.txt" folder year day)))
-(def input-data (partial folder-data "input"))
-(def sample-data (partial folder-data "sample"))
+#?(:clj
+   (defn render-template [template mapping]
+     (reduce
+       (fn [src [key value]] (str/replace src (format "!%s!" key) (str value)))
+       template
+       (seq mapping))))

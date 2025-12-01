@@ -1,6 +1,5 @@
-(ns aoc.2021.day03
-  (:require [clojure.math :as math]
-            [clojure.string :as s]))
+(ns aoc.y2021.day03
+  (:require [clojure.math :as math]))
 
 (defn- binary-seq [s] (map (comp parse-long str) (reverse s)))
 (defn- add-binary-position [[sum exp] n]
@@ -10,7 +9,7 @@
 (defn binary->int [s]
   (first (reduce add-binary-position [0 0] (binary-seq s))))
 
-(defn split [n] (s/split n #""))
+(defn split [n] (map str n))
 
 (defn nth-frequencies [coll n]
   (frequencies (map #(nth (split %) n) coll)))
@@ -27,12 +26,15 @@
   (if (gt? (nth-frequencies coll n) "0" "1")
     1 0))
 
-(def n-range (comp range count first))
-(defn- binary-string [f coll]
+(defn n-range [coll] (-> coll first count range))
+(defn binary-string [f coll]
   (apply str (map (partial f coll) (n-range coll))))
 
-(def gamma-rate (comp binary->int (partial binary-string most-common)))
-(def epsilon-rate (comp binary->int (partial binary-string least-common)))
+(defn gamma-rate [n]
+  (binary->int (binary-string most-common n)))
+
+(defn epsilon-rate [n]
+  (binary->int (binary-string least-common n)))
 
 (defn power-consumption [n]
   (* (gamma-rate n)
