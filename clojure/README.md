@@ -21,3 +21,6 @@ Files will be created in the src and spec folders under a directory for that yea
 
     # Run specs automatically
     clj -M:test:spec -a
+
+    # Run Babashka specs
+    bb spec

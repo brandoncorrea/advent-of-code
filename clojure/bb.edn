@@ -1,3 +1,7 @@
-{:paths ["dev"]
- :tasks {advent {:requires ([aoc.advent :as advent])
-                 :task     (apply advent/-main *command-line-args*)}}}
+{:paths ["src"]
+ :tasks {advent {:extra-paths ["dev"]
+                 :requires    ([aoc.advent :as advent])
+                 :task        (apply advent/-main *command-line-args*)}
+         spec   {:extra-deps {speclj/speclj {:mvn/version "3.12.0"}}
+                 :requires   ([speclj.main :as main])
+                 :task       (apply main/-main "-c" "spec" "-p" "src" *command-line-args*)}}}
