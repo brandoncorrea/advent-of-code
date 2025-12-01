@@ -1,7 +1,7 @@
 (ns aoc.y2021.day02-spec
   (:require [aoc.y2021.day02 :as sut]
             [aoc.util :as util]
-            [clojure.string :as string]
+            [clojure.string :as str]
             [aoc.input.y2021.day02 :as input]
             [aoc.sample.y2021.day02 :as sample]
             [speclj.core #?(:cljs :refer-macros :default :refer) [describe it should=]]))
@@ -10,7 +10,7 @@
 
 (defn parsed-input [data]
   (->> data
-       string/split-lines
+       str/split-lines
        (map util/->words)
        (mapcat (juxt (comp keyword first) (comp parse-long second)))))
 

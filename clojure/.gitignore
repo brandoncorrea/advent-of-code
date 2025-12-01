@@ -1,3 +1,7 @@
-resources/aoc/input
-resources/aoc/sample
+resources/aoc
 target
+test/cljd-out
+.clojuredart
+.dart_tool
+cljs-test-runner-out
+lib

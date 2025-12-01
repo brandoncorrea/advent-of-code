@@ -1,8 +1,6 @@
 {:ns-prefix      "aoc"
  :ignore-errors  ["goog/i18n/bidi.js"]
  :ignore-console ["Download the React DevTools"]
- :env-keys       ["cc.env" "CC_ENV"]
- ;:run-cmd        "node resources/public/specs/speclj.js"
  :development    {:cache-analysis true
                   :optimizations  :none
                   :output-dir     "target/cljs/"

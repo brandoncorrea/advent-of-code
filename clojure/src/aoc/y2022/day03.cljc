@@ -1,6 +1,6 @@
 (ns aoc.y2022.day03
   (:require [aoc.util :as util]
-            [clojure.string :as string]))
+            [clojure.string :as str]))
 
 (defn includes? [v coll] (some (partial = v) coll))
 
@@ -16,7 +16,8 @@
 
 (defn priority-total [partition-fn rucksacks]
   (->> rucksacks
-       string/split-lines
+       str/split-lines
+       (remove str/blank?)
        partition-fn
        (transduce (map priority) +)))
 

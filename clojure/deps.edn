@@ -1,13 +1,24 @@
-{:paths   ["src" "resources"]
- :deps    {org.clojure/clojure {:mvn/version "1.12.3"}}
- :aliases {
-           :test   {:extra-deps  {speclj/speclj             {:mvn/version "3.10.0"}
-                                  org.clojure/clojurescript {:mvn/version "1.12.42"}}
-                    :extra-paths ["spec" "dev"]}
-           :spec   {:main-opts ["-m" "speclj.main" "-c"]}
-           :advent {:extra-paths ["dev"]
-                    :main-opts   ["-m" "aoc.advent"]}
-           :cljs   {:extra-deps {com.cleancoders.c3kit/scaffold {:mvn/version "2.3.0"}}
-                    :main-opts  ["-m" "c3kit.scaffold.cljs"]}
-           }
+{:paths     ["src" "resources"]
+ :deps      {org.clojure/clojure {:mvn/version "1.12.3"}}
+ :cljd/opts {:kind :dart :main cljd.run-tests}
+ :aliases   {
+             :test      {:extra-deps  {speclj/speclj             {:mvn/version "3.10.0"}
+                                       org.clojure/clojurescript {:mvn/version "1.12.42"}}
+                         :extra-paths ["spec" "test" "dev"]}
+             :spec      {:main-opts ["-m" "speclj.main" "-c"]}
+             :cljs      {:extra-deps {com.cleancoders.c3kit/scaffold {:mvn/version "2.3.0"}}
+                         :main-opts  ["-m" "c3kit.scaffold.cljs"]}
+             :advent    {:extra-paths ["dev"]
+                         :main-opts   ["-m" "aoc.advent"]}
+             ; clojure.test
+             :test-clj  {:extra-paths ["test"]
+                         :extra-deps  {io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                         :main-opts   ["-m" "cognitect.test-runner"]}
+             :test-cljs {:extra-paths ["test"]
+                         :extra-deps  {olical/cljs-test-runner {:mvn/version "3.8.1"}}
+                         :main-opts   ["-m" "cljs-test-runner.main"]}
+             :test-cljd {:extra-paths ["test"]
+                         :extra-deps  {tensegritics/clojuredart {:git/url "https://github.com/tensegritics/ClojureDart.git" :sha "2c070ca1ca7b7a2135808bd25f80035ec5619117"}}
+                         :main-opts   ["-m" "cljd.build" "test"]}
+             }
  }

@@ -5,7 +5,7 @@
             [aoc.input.y2021.day01 :as input]
             [speclj.core #?(:cljs :refer-macros :default :refer) [describe it should=]]))
 
-; https://adventofcode.com/2021/day/2
+; https://adventofcode.com/2021/day/1
 
 (def input-data (-> input/data
                     str/split-lines

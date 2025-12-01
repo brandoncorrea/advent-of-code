@@ -2,13 +2,13 @@
   (:require [aoc.y2021.day03 :as sut]
             [aoc.input.y2021.day03 :as input]
             [aoc.sample.y2021.day03 :as sample]
-            [clojure.string :as string]
+            [clojure.string :as str]
             [speclj.core #?(:cljs :refer-macros :default :refer) [context describe focus-it it should=]]))
 
 ; https://adventofcode.com/2021/day/3
 
-(def diagnostic (string/split-lines input/data))
-(def example (string/split-lines sample/data))
+(def diagnostic (str/split-lines input/data))
+(def example (str/split-lines sample/data))
 
 (describe "AoC Day 3"
 

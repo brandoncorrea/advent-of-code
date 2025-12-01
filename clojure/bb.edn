@@ -4,8 +4,33 @@
                       :task     (apply advent/-main *command-line-args*)}
          sync-inputs {:requires ([aoc.sync-inputs :as sync])
                       :task     (sync/-main)}
+         clean       {:requires ([babashka.fs :as fs])
+                      :task     (run! fs/delete-tree [".clojuredart"
+                                                      ".cpcache"
+                                                      ".dart_tool"
+                                                      "cljs-test-runner-out"
+                                                      "lib"
+                                                      "resources/aoc"
+                                                      "target"
+                                                      "test/cljd-out"])}
          spec        {:extra-deps {speclj/speclj {:mvn/version "3.12.0"}}
                       :requires   ([speclj.main :as main])
                       :task       (apply main/-main "-c" "spec" "-p" "src" *command-line-args*)}
+         test        {:extra-paths ["test"]
+                      :extra-deps  {io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                      :task        (exec 'cognitect.test-runner.api/test)}
+         test-all    (doseq [[framework commands]
+                             {"clojure.test" {"Clojure"       "clj -M:test-clj"
+                                              "ClojureScript" "clj -M:test-cljs"
+                                              "Babashka"      "bb test"
+                                              "ClojureDart"   "clj -M:test-cljd"
+                                              "ClojureCLR"    "cljr -X:test-cljr"}
+                              "speclj"       {"Clojure"       "clj -M:test:spec"
+                                              "ClojureScript" "clj -M:test:cljs once"
+                                              "Babashka"      "bb spec"
+                                              "ClojureCLR"    "cljr -M:test:spec"}}]
+                       (doseq [[platform command] commands]
+                         (println (format "Running %s tests on %s" framework platform))
+                         (shell command)))
          }
  }
