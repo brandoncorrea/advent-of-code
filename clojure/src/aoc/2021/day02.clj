@@ -2,9 +2,10 @@
   (:require [aoc.util :as util]))
 
 (defn- navigate-move [[d h a] [type v]]
-  (cond (= :down type) [d h (+ a v)]
-        (= :up type) [d h (- a v)]
-        :else [(+ d (* a v)) (+ h v) a]))
+  (case type
+    :down [d h (+ a v)]
+    :up [d h (- a v)]
+    [(+ d (* a v)) (+ h v) a]))
 
 (defn navigate [moves]
   (reduce navigate-move [0 0 0] (partition 2 moves)))

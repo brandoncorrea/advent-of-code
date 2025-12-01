@@ -2,16 +2,16 @@
   (:require [aoc.util :as util]
             [clojure.string :as s]))
 
-(defn ->int [c] (Integer. (str c)))
-
-(defn- binary-seq [s] (map ->int (reverse (char-array s))))
+(defn- binary-seq [s] (map (comp util/->int str) (reverse (char-array s))))
 (defn- add-binary-position [[sum exp] n]
   [(+ sum (* n (util/pow 2 exp)))
    (inc exp)])
+
 (defn binary->int [s]
   (first (reduce add-binary-position [0 0] (binary-seq s))))
 
 (defn split [n] (s/split n #""))
+
 (defn nth-frequencies [coll n]
   (frequencies (map #(nth (split %) n) coll)))
 
@@ -30,6 +30,7 @@
 (def n-range (comp range count first))
 (defn- binary-string [f coll]
   (apply str (map (partial f coll) (n-range coll))))
+
 (def gamma-rate (comp binary->int (partial binary-string most-common)))
 (def epsilon-rate (comp binary->int (partial binary-string least-common)))
 

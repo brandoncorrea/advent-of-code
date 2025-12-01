@@ -1,6 +1,6 @@
 (ns aoc.2022.day02
   (:require [aoc.util :as util]
-            [clojure.string :as string]))
+            [clojure.string :as str]))
 
 (def part-1-scoring
   {"A X" 4
@@ -24,6 +24,11 @@
    "C Y" 6
    "C Z" 7})
 
-(defn total-score [scoring n] (->> n string/split-lines (map scoring) util/sum))
+(defn total-score [scoring n]
+  (->> n
+       str/split-lines
+       (map scoring)
+       util/sum))
+
 (def part-1 (partial total-score part-1-scoring))
 (def part-2 (partial total-score part-2-scoring))

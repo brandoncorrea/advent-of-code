@@ -1,5 +1,6 @@
 (ns aoc.2022.day03
-  (:require [clojure.string :as string]))
+  (:require [aoc.util :as util]
+            [clojure.string :as string]))
 
 (defn includes? [v coll] (some (partial = v) coll))
 
@@ -8,12 +9,7 @@
     (- ascii (if (>= ascii 97) 96 38))))
 
 (defn find-common-char [[compartment & compartments]]
-  (reduce
-    (fn [_ c]
-      (when (every? (partial includes? c) compartments)
-        (reduced c)))
-    nil
-    compartment))
+  (util/ffilter #(every? (partial includes? %) compartments) compartment))
 
 (def priority (comp char-priority find-common-char))
 (defn ->compartment [rucksack] (split-at (/ (count rucksack) 2) rucksack))

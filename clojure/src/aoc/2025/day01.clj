@@ -31,8 +31,7 @@
         (assoc :dial (normalize-dial dial-result)))))
 
 (defn- count-zero-dials [n strategy]
-  (->> (str/split-lines n)
-       (remove str/blank?)
+  (->> (util/populated-lines n)
        (reduce rotate-dial {:dial     50
                             :zeros    0
                             :strategy strategy})

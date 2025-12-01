@@ -2,6 +2,10 @@
   (:require [aoc.util :as util]))
 
 (defn increases [nums]
-  (util/enumerate util/lt? (partition 2 1 nums)))
+  (->> (partition 2 1 nums)
+       (util/count-where util/lt?)))
+
 (defn window-increases [size coll]
-  (increases (map util/sum (partition size 1 coll))))
+  (->> (partition size 1 coll)
+       (map util/sum)
+       increases))

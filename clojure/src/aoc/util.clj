@@ -1,16 +1,23 @@
 (ns aoc.util
-  (:require [clojure.string :as string]))
+  (:require [clojure.string :as str]))
 
-(def ->int #(Integer/parseInt %))
-(def ->ints (partial map ->int))
-(def sum (partial apply +))
-(def product (partial apply *))
-(def rsort (partial sort-by -))
-(defn enumerate [pred coll]
-  (reduce #(if (pred %2) (inc %1) %1) 0 coll))
-(def lt? (partial apply <))
+(defn ->int [s] (Integer/parseInt s))
+(defn ->ints [coll] (map ->int coll))
+(defn sum [vals] (apply + vals))
+(defn product [vals] (apply * vals))
+(defn rsort [coll] (sort-by - coll))
+(defn count-where [pred coll]
+  (reduce #(cond-> %1 (pred %2) inc) 0 coll))
+(defn lt? [vals] (apply < vals))
 (defn pow [n e] (apply * (repeat e n)))
-(defn ->words [s] (string/split s #"\s"))
+(defn ->words [s] (str/split s #"\s"))
+
+(defn populated-lines [s]
+  (->> (str/split-lines s)
+       (remove str/blank?)))
+
+(defn ffilter [pred coll]
+  (reduce #(when (pred %2) (reduced %2)) nil coll))
 
 (defn- folder-data [folder year day] (slurp (format "../%s/%d/day_%02d.txt" folder year day)))
 (def input-data (partial folder-data "input"))
