@@ -5,7 +5,7 @@
 (defn rations->calories [elf]
   (-> elf
       str/split-lines
-      util/->ints
+      util/parse-longs
       util/sum))
 
 (defn elves->calories [elves]

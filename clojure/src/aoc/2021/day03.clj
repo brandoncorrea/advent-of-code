@@ -1,10 +1,10 @@
 (ns aoc.2021.day03
-  (:require [aoc.util :as util]
+  (:require [clojure.math :as math]
             [clojure.string :as s]))
 
-(defn- binary-seq [s] (map (comp util/->int str) (reverse (char-array s))))
+(defn- binary-seq [s] (map (comp parse-long str) (reverse s)))
 (defn- add-binary-position [[sum exp] n]
-  [(+ sum (* n (util/pow 2 exp)))
+  [(+ sum (* n (int (math/pow 2 exp))))
    (inc exp)])
 
 (defn binary->int [s]

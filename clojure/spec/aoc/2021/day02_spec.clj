@@ -10,7 +10,7 @@
   (->> (input-data-fn 2021 2)
        string/split-lines
        (map util/->words)
-       (mapcat (juxt (comp keyword first) (comp util/->int second)))))
+       (mapcat (juxt (comp keyword first) (comp parse-long second)))))
 
 (def input-data (parsed-input util/input-data))
 (def sample-data (parsed-input util/sample-data))

@@ -6,7 +6,9 @@
 
 ; https://adventofcode.com/2021/day/2
 
-(def input-data (-> (util/input-data 2021 1) string/split-lines util/->ints))
+(def input-data (-> (util/input-data 2021 1)
+                    string/split-lines
+                    util/parse-longs))
 
 (describe "increases"
   (for [[coll expected] [[[] 0]

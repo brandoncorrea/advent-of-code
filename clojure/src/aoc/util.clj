@@ -1,15 +1,13 @@
 (ns aoc.util
   (:require [clojure.string :as str]))
 
-(defn ->int [s] (Integer/parseInt s))
-(defn ->ints [coll] (map ->int coll))
+(defn parse-longs [coll] (map parse-long coll))
 (defn sum [vals] (apply + vals))
 (defn product [vals] (apply * vals))
 (defn rsort [coll] (sort-by - coll))
 (defn count-where [pred coll]
   (reduce #(cond-> %1 (pred %2) inc) 0 coll))
 (defn lt? [vals] (apply < vals))
-(defn pow [n e] (apply * (repeat e n)))
 (defn ->words [s] (str/split s #"\s"))
 
 (defn populated-lines [s]

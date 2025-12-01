@@ -21,7 +21,7 @@
     (update safe :zeros + passes)))
 
 (defn- evaluate-dial [{:keys [dial]} operation]
-  (let [rotations (util/->int (re-find #"\d+" operation))
+  (let [rotations (parse-long (re-find #"\d+" operation))
         operator  (if (str/starts-with? operation "R") + -)]
     (operator dial rotations)))
 

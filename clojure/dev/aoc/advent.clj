@@ -64,9 +64,9 @@
     (spit file content)))
 
 (defn -main [year day]
-  (let [day     (Integer/parseInt day)
+  (let [day     (parse-long day)
         mapping {"D"  day
                  "DS" (format "%02d" day)
-                 "Y"  (Integer/parseInt year)}]
+                 "Y"  (parse-long year)}]
     (write-template "spec/aoc/%d/day%s_spec.clj" spec-template mapping)
     (write-template "src/aoc/%d/day%s.clj" src-template mapping)))
