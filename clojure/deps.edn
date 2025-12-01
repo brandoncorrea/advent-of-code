@@ -1,0 +1,10 @@
+{:paths   ["src"]
+ :deps    {org.clojure/clojure {:mvn/version "1.12.3"}}
+ :aliases {
+           :test   {:extra-deps  {speclj/speclj {:mvn/version "3.10.0"}}
+                    :extra-paths ["spec" "dev"]}
+           :spec   {:main-opts ["-m" "speclj.main" "-c"]}
+           :advent {:extra-paths ["dev"]
+                    :main-opts   ["-m" "aoc.advent"]}
+           }
+ }

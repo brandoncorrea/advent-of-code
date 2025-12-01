@@ -1,0 +1,3 @@
+{:paths ["dev"]
+ :tasks {advent {:requires ([aoc.advent :as advent])
+                 :task     (apply advent/-main *command-line-args*)}}}

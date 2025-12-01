@@ -1,7 +1,6 @@
 (ns aoc.advent
-  (:import (java.io File FileOutputStream)
-           (java.text DecimalFormat))
-  (:require [clojure.string :as str]))
+  (:require [clojure.java.io :as io]
+            [clojure.string :as str]))
 
 (def spec-template
 "(ns aoc.!Y!.day!DS!-spec
@@ -56,21 +55,18 @@
     src
     (seq mapping)))
 
-(defn write-file [path content]
-  (.mkdirs (.getParentFile (File. path)))
-  (let [output (FileOutputStream. path)
-        bytes (.getBytes content)]
-    (println "writing" (count bytes) "bytes to" path)
-    (.write output (.getBytes content))
-    (.close output)))
+(defn write-template [path template mapping]
+  (let [{:strs [Y DS]} mapping
+        file    (format path Y DS)
+        content (render template mapping)]
+    (io/make-parents file)
+    (println "writing to" file)
+    (spit file content)))
 
 (defn -main [year day]
-  (let [year (Integer/parseInt year)
-        day (Integer/parseInt day)
-        day-str (.format (DecimalFormat. "00") day)
-        spec-content (render spec-template {"D" day "DS" day-str "Y" year})
-        spec-file (format "spec/aoc/%d/day%s_spec.clj" year day-str)
-        src-content (render src-template {"D" day "DS" day-str "Y" year})
-        src-file (format "src/aoc/%d/day%s.clj" year day-str)]
-    (write-file spec-file spec-content)
-    (write-file src-file src-content)))
+  (let [day     (Integer/parseInt day)
+        mapping {"D"  day
+                 "DS" (format "%02d" day)
+                 "Y"  (Integer/parseInt year)}]
+    (write-template "spec/aoc/%d/day%s_spec.clj" spec-template mapping)
+    (write-template "src/aoc/%d/day%s.clj" src-template mapping)))
