@@ -7,7 +7,7 @@
   (:require [aoc.y!Y!.day!DS! :as sut]
             [aoc.input.y!Y!.day!DS! :as input]
             [aoc.sample.y!Y!.day!DS! :as sample]
-            [speclj.core #?(:clj :refer :cljs :refer-macros) [context describe it should=]))
+            [speclj.core #?(:cljs :refer-macros :default :refer) [context describe it should=]]))
 
 ; https://adventofcode.com/!Y!/day/!D!
 
@@ -29,16 +29,16 @@
       (should= 1 (sut/part-2 1)))
 
     #_(it \"Sample Data\"
-      (should= 1 (sut/part-1 sample/data)))
+      (should= 1 (sut/part-2 sample/data)))
 
     #_(it \"Input Data\"
-      (should= 1 (sut/part-1 input/data)))
+      (should= 1 (sut/part-2 input/data)))
     )
   )
 ")
 
 (def src-template
-"(ns aoc.!Y!.day!DS!)
+"(ns aoc.y!Y!.day!DS!)
 
 (defn part-1 [n]
   )
@@ -60,5 +60,5 @@
         mapping {"D"  day
                  "DS" (format "%02d" day)
                  "Y"  (parse-long year)}]
-    (write-template "spec/aoc/%d/day%s_spec.clj" spec-template mapping)
-    (write-template "src/aoc/%d/day%s.clj" src-template mapping)))
+    (write-template "spec/aoc/y%d/day%s_spec.cljc" spec-template mapping)
+    (write-template "src/aoc/y%d/day%s.cljc" src-template mapping)))
