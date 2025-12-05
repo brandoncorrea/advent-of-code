@@ -3,6 +3,9 @@
 
 (defn parse-longs [coll] (map parse-long coll))
 (defn sum [vals] (apply + vals))
+(defn sum-by [f coll] (reduce #(+ %1 (f %2)) 0 coll))
+(defn max-by [f coll] (apply max (map f coll)))
+(defn min-by [f coll] (apply min (map f coll)))
 (defn product [vals] (apply * vals))
 (defn rsort [coll] (sort-by - coll))
 (defn count-where [pred coll]
@@ -15,7 +18,7 @@
      :default (int c)))
 
 (defn populated-lines [s]
-  (->> (str/split-lines s)
+  (->> (some-> s str/split-lines)
        (remove str/blank?)))
 
 (defn ffilter [pred coll]
